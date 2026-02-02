@@ -1,0 +1,185 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Header Styles */
+header {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    letter-spacing: 1px;
+}
+
+header p {
+    margin: 5px 0;
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+/* Section Styles */
+section {
+    padding: 30px;
+    margin: 20px auto;
+    background: white;
+    max-width: 900px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 5px;
+}
+
+section h2 {
+    color: #2c3e50;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+section h3 {
+    color: #34495e;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+
+section p {
+    margin: 10px 0;
+    line-height: 1.7;
+}
+
+/* List Styles */
+ul {
+    list-style-type: square;
+    padding-left: 25px;
+}
+
+ul li {
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+/* Education Items */
+.education-item {
+    margin-bottom: 25px;
+    padding-left: 15px;
+    border-left: 4px solid #3498db;
+}
+
+.education-item h3 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+.education-item p {
+    margin: 5px 0;
+}
+
+/* Project Items */
+.project-item {
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border-left: 4px solid #27ae60;
+}
+
+.project-item h3 {
+    margin-top: 0;
+    color: #27ae60;
+}
+
+.project-item ul {
+    margin-top: 10px;
+}
+
+/* Experience Items */
+.experience-item {
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: #fff9e6;
+    border-radius: 5px;
+    border-left: 4px solid #f39c12;
+}
+
+.experience-item h3 {
+    margin-top: 0;
+    color: #e67e22;
+}
+
+.experience-item ul {
+    margin-top: 10px;
+}
+
+/* Leadership Items */
+.leadership-item {
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: #f0f8ff;
+    border-radius: 5px;
+    border-left: 4px solid #9b59b6;
+}
+
+.leadership-item h3 {
+    margin-top: 0;
+    color: #8e44ad;
+}
+
+.leadership-item ul {
+    margin-top: 10px;
+}
+
+/* Contact Section */
+.contact {
+    background-color: #ecf0f1;
+}
+
+.contact a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+    
+    section {
+        padding: 20px;
+        margin: 15px 10px;
+    }
+    
+    section h2 {
+        font-size: 1.5em;
+    }
+}
