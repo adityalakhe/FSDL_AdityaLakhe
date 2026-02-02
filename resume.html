@@ -1,12 +1,458 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Lakhe - Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --accent: #0f4c75;
+            --highlight: #3282b8;
+            --light: #bbe1fa;
+            --text: #2c3e50;
+            --text-light: #546e7a;
+            --bg: #ffffff;
+            --shadow: rgba(15, 76, 117, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--bg);
+            box-shadow: 0 20px 60px var(--shadow);
+            border-radius: 2px;
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 3rem 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: white;
+        }
+
+        .content {
+            padding: 2.5rem;
+        }
+
+        section {
+            margin-bottom: 2.5rem;
+            animation: slideIn 0.6s ease-out backwards;
+        }
+
+        section:nth-child(1) { animation-delay: 0.1s; }
+        section:nth-child(2) { animation-delay: 0.2s; }
+        section:nth-child(3) { animation-delay: 0.3s; }
+        section:nth-child(4) { animation-delay: 0.4s; }
+        section:nth-child(5) { animation-delay: 0.5s; }
+        section:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--highlight);
+            display: inline-block;
+            font-weight: 700;
+        }
+
+        .objective {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            font-weight: 300;
+        }
+
+        .education-item, .experience-item {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--light);
+            transition: border-color 0.3s;
+        }
+
+        .education-item:hover, .experience-item:hover {
+            border-color: var(--highlight);
+        }
+
+        .education-item h3, .experience-item h3 {
+            font-size: 1.15rem;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+
+        .education-item .details, .experience-item .details {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-item .score {
+            font-weight: 600;
+            color: var(--highlight);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--highlight);
+            transition: all 0.3s;
+        }
+
+        .skill-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        .skill-item strong {
+            color: var(--accent);
+            display: block;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-light);
+        }
+
+        ul li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--highlight);
+            font-weight: bold;
+        }
+
+        .certifications-list, .achievements-list {
+            display: grid;
+            gap: 0.8rem;
+        }
+
+        .cert-item, .achievement-item {
+            background: #f8f9fa;
+            padding: 1rem 1.25rem;
+            border-radius: 6px;
+            border-left: 3px solid var(--accent);
+            transition: all 0.3s;
+        }
+
+        .cert-item:hover, .achievement-item:hover {
+            background: #ffffff;
+            box-shadow: 0 3px 10px var(--shadow);
+            transform: translateY(-2px);
+        }
+
+        .experience-item ul li {
+            font-size: 0.95rem;
+        }
+
+        .non-tech-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            background: var(--light);
+            color: var(--accent);
+            padding: 0.5rem 1.25rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: var(--highlight);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .content {
+                padding: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+
+            header::before {
+                display: none;
+            }
+        }
+    </style>
+</head>
 <body>
+    <div class="container">
+        <header>
+            <h1>Aditya Lakhe</h1>
+            <div class="contact-info">
+                <span>📧 aditya.lakhe@mitwpu.edu.in</span>
+                <span>📱 +91-9579613855</span>
+                <a href="https://www.linkedin.com/in/aditya-lakhe/" target="_blank">🔗 LinkedIn Profile</a>
+            </div>
+        </header>
 
-<h1>Aditya Lakhe</h1>
-<p>Email:adityalakhe@mitwpu.edu.in</p>
+        <div class="content">
+            <section>
+                <h2>Education</h2>
+                <div class="education-item">
+                    <h3>B.Tech in Computer Science & Engineering</h3>
+                    <div class="details">MIT-WPU, Pune | 2023-2027</div>
+                    <div class="score">CGPA: 8.81 (Till Semester 4)</div>
+                </div>
+                <div class="education-item">
+                    <h3>HSC (12th)</h3>
+                    <div class="details">MP International School & Jr. College, Pune | 2023</div>
+                    <div class="score">83.17% (Top 1% in State)</div>
+                </div>
+                <div class="education-item">
+                    <h3>SSC (10th)</h3>
+                    <div class="details">Abhinava Vidyalaya English Medium School, Pune | 2021</div>
+                    <div class="score">95.2% (Maths 100/100, Science 99/100)</div>
+                </div>
+            </section>
 
-<h3>Education</h3>
-<p>B.Tech CSE</p>
+            <section>
+                <h2>Projects</h2>
+                <div class="experience-item">
+                    <h3>Dynamic Pricing and Inventory Management System</h3>
+                    <div class="details">Python, Flask, MySQL | April 2025</div>
+                    <ul>
+                        <li>Built a full-stack web app with admin dashboards, live inventory search, and sales reporting</li>
+                        <li>Implemented hybrid dynamic pricing engine with real-time demand adjustments and holiday promotions</li>
+                        <li>Utilized MySQL Events and database triggers for automation and security</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3>Photography Stories Web App</h3>
+                    <div class="details">HTML, CSS, Firebase | August 2025</div>
+                    <ul>
+                        <li>Built responsive photo-story gallery with secure admin uploads and cloud storage</li>
+                        <li>Implemented image validation, live gallery updates using Firebase (Storage + Firestore)</li>
+                        <li>Designed mobile-first responsive interface for optimal user experience</li>
+                    </ul>
+                </div>
+            </section>
 
+            <section>
+                <h2>Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <strong>Programming</strong>
+                        Python, C++, MySQL, CSS
+                    </div>
+                    <div class="skill-item">
+                        <strong>Key Courses</strong>
+                        DSA, OOP, DBMS, Operating Systems, Cloud Computing, AI & Expert Systems
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Work Experience</h2>
+                <div class="experience-item">
+                    <h3>Chess Coach, Technical Advisor</h3>
+                    <div class="details">Mindcastle Chess Academy | April 2025 - September 2025</div>
+                    <ul>
+                        <li>Coached 15+ students with 100+ hours of training and tournament preparation</li>
+                        <li>Led rebranding efforts and grew website to 4,200+ views</li>
+                        <li>Onboarded and trained 3 new coaches</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3>Chess Coach</h3>
+                    <div class="details">Phoenix Chess Club | October 2024 - March 2025</div>
+                    <ul>
+                        <li>Taught 20+ students with 80+ teaching hours</li>
+                        <li>Managed student database and updates, boosting engagement and visibility</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>Leadership</h2>
+                <div class="experience-item">
+                    <h3>Sports Treasurer, CSE Department</h3>
+                    <div class="details">MIT-WPU | July 2024 - July 2025</div>
+                    <ul>
+                        <li>Managed sports finances for 2000+ person department</li>
+                        <li>Coordinated multiple year-round sports events smoothly and efficiently</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3>Team Leader - HACKMIT Appreciation Award</h3>
+                    <div class="details">March 2025</div>
+                    <ul>
+                        <li>Led team of 6 to win Appreciation Award in Ideathon</li>
+                        <li>Managed project coordination, role assignment, and strategic planning</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>Certifications</h2>
+                <div class="certifications-list">
+                    <div class="cert-item">Agile Fundamentals: Scrum & Kanban - Udemy (March 2025)</div>
+                    <div class="cert-item">Goethe-Zertifikat A2 - Goethe Institut (January 2025)</div>
+                    <div class="cert-item">Critical Thinking and Problem Solving - RIT (March 2024)</div>
+                    <div class="cert-item">Data Visualization and Dashboards - IBM (February 2024)</div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Key Achievements</h2>
+                <div class="achievements-list">
+                    <div class="achievement-item">Arena International Master title in Chess issued by FIDE - 2024</div>
+                    <div class="achievement-item">Won Appreciation Award at HackMITWPU 2025</div>
+                    <div class="achievement-item">Top Grade in German A2 Exam (92/100) - January 2025</div>
+                    <div class="achievement-item">Finalist at HackMITWPU 2024</div>
+                    <div class="achievement-item">Gold Medallist in Chess at MIT-WPU National Event Summit 2024</div>
+                    <div class="achievement-item">2-Time Gold Medallist at Interdepartmental Chess (2023, 2024)</div>
+                    <div class="achievement-item">Selected for 3-week fully sponsored scholarship to Germany (2020) - Perfect score in Fit Eins exam and German interviews</div>
+                    <div class="achievement-item">Perfect Score in German Fit Eins Exam (60/60) - 2019</div>
+                    <div class="achievement-item">Infosys Catch Them Young Program - Top 36 from 700+ students (2019)</div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Core Skills</h2>
+                <div class="non-tech-skills">
+                    <span class="skill-tag">Leadership</span>
+                    <span class="skill-tag">Problem-Solving</span>
+                    <span class="skill-tag">Communication</span>
+                    <span class="skill-tag">Project Management</span>
+                    <span class="skill-tag">Time Management</span>
+                    <span class="skill-tag">Adaptability</span>
+                    <span class="skill-tag">Critical Thinking</span>
+                </div>
+            </section>
+        </div>
+    </div>
 </body>
 </html>
